@@ -10,6 +10,7 @@ def create_audit_log(
     company_id: int,
     user_id: int,
     action: str,
+    entity_name: str = "",
     ip_address: str = "",
     browser: str = ""
 ):
@@ -18,6 +19,7 @@ def create_audit_log(
         company_id=company_id,
         user_id=user_id,
         action=action,
+        entity_name=entity_name,
         ip_address=ip_address,
         browser=browser
     )
@@ -48,6 +50,7 @@ def get_audit_logs(
         result.append({
 
             "id": log.id,
+            "entity_name": log.entity_name,
             "action": log.action,
             "ip_address": log.ip_address,
             "browser": log.browser,
